@@ -7,6 +7,8 @@ describe "Model Viewport", ->
   afterEach ->
     @model.dispose()
 
+    expect(ViewportModel.getPool().usedList.length()).to.equal 0
+
   it "should have valid properties", ->
     expect(@model.x).to.equal 1
     expect(@model.y).to.equal 2

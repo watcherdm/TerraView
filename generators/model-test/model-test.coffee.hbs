@@ -6,3 +6,5 @@ describe "Model {{#camelize}}{{name}}{{/camelize}}", ->
 
   afterEach ->
     @model.dispose()
+
+    expect({{#camelize}}{{name}}{{/camelize}}Model.getPool().isUsed.length()).to.equal 0

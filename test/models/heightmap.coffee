@@ -14,6 +14,8 @@ describe "Model Heightmap", ->
   afterEach ->
     @model.dispose()
 
+    expect(HeightmapModel.getPool().usedList.length()).to.equal 0
+
   it "should know world tile dimensions", ->
     expect(@model.worldTileWidth).to.equal 12
     expect(@model.worldTileHeight).to.equal 9

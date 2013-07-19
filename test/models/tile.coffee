@@ -7,6 +7,8 @@ describe "Model Tile", ->
   afterEach ->
     @model.dispose()
 
+    expect(TileModel.getPool().usedList.length()).to.equal 0
+
   it "should be valid", ->
     expect(@model.index).to.equal 1
     expect(@model.x).to.equal 2
