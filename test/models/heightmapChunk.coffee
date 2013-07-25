@@ -7,7 +7,7 @@ describe "Model HeightmapChunk", ->
   afterEach ->
     @model.dispose()
 
-    expect(HeightmapChunkModel.getPool().usedList.length()).to.equal 0
+    expect(HeightmapChunkModel.getUsedLength()).to.equal 0
 
   it "should have cells", ->
     expect(@model.cells).to.not.equal undefined

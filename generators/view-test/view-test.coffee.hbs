@@ -7,4 +7,4 @@ describe "View {{#camelize}}{{name}}{{/camelize}}", ->
   afterEach ->
     @view.dispose()
 
-    expect({{#camelize}}{{name}}{{/camelize}}View.getPool().isUsed.length()).to.equal 0
+    expect({{#camelize}}{{name}}{{/camelize}}View.getPool().usedList.length()).to.equal 0

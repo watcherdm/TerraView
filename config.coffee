@@ -7,8 +7,7 @@ exports.config =
         'test/javascripts/test.js': /^test[\\/](?!vendor)/
         'test/javascripts/test-vendor.js': /^test[\\/](?=vendor)/
       order:
-        before: [
-        ]
+        before: []
         after: [
           'test/vendor/scripts/test-helper.js'
         ]
