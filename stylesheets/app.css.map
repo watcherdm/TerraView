@@ -1,0 +1,1 @@
+{"version":3,"file":"public/stylesheets/app.css","sources":["app/views/styles/application.styl"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","sourcesContent":["// nib is a powerful lib for stylus that provides cross-browser css3 mixins.\n// No more vendor prefixes. http://visionmedia.github.com/nib/\n@import 'nib'\n\n.container\n  width: 480px\n  margin: 0 auto\n"]}
