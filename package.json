@@ -1,12 +1,12 @@
 {
   "author": "Chris Lindsey",
-  "name": "terraView",
-  "description": "terraView",
-  "version": "0.0.0",
-  "homepage": "",
+  "name": "TerraView",
+  "description": "TerraView",
+  "version": "0.0.1",
+  "homepage": "clindsey.github.com/TerraView",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:clindsey/TerraView.git"
   },
   "scripts": {
     "start": "brunch watch --server",
