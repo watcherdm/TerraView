@@ -8,7 +8,6 @@ describe "View Viewport", ->
     @view = ViewportView.create @viewportModel
 
   afterEach ->
-    @view.tileMapView.dispose()
     @view.dispose()
     @viewportModel.dispose()
 
@@ -24,3 +23,12 @@ describe "View Viewport", ->
 
   it "should add a tilemap view as child", ->
     expect(@view.el.children.length).to.equal 1
+
+  it "should update viewport model with movement", ->
+    expect(@viewportModel.x).to.equal 1
+    expect(@viewportModel.y).to.equal 2
+
+    EventBus.dispatch "!key:down", {}, { keyCode: 37 }
+
+    expect(@viewportModel.x).to.equal 0
+    expect(@viewportModel.y).to.equal 2

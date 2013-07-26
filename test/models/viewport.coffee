@@ -23,3 +23,27 @@ describe "Model Viewport", ->
   it "should compute world tile size", ->
     expect(@model.worldTileWidth).to.equal 35
     expect(@model.worldTileHeight).to.equal 48
+
+  it "should set x/y", ->
+    expect(@model.x).to.equal 1
+    expect(@model.y).to.equal 2
+
+    @model.setX 3
+    @model.setY 5
+
+    expect(@model.x).to.equal 3
+    expect(@model.y).to.equal 5
+
+  it "should fire an event when x/y change", ->
+    eventCalled = false
+
+    eventCallback = ->
+      eventCalled = true
+
+    EventBus.addEventListener "!viewport:move", eventCallback, @
+
+    @model.setX 4
+
+    expect(eventCalled).to.equal true
+
+    EventBus.removeEventListener eventCallback, @

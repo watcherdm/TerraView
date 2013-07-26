@@ -1,6 +1,6 @@
 View = require "views/base/View"
 
-module.exports = View.extend "Tile",
+module.exports = View.extend "TileView",
   {
     create: (tileModel) ->
       view = @_super()
@@ -9,17 +9,17 @@ module.exports = View.extend "Tile",
 
       view.el = new createjs.Bitmap "/images/tileset_terra.png"
 
-      @setSpritePosition view
+      view.model.setIndexCallback ->
+        view.setSpritePosition()
+
+      view.setSpritePosition()
 
       view
-
-    setSpritePosition: (view) ->
-      model = view.model
-
-      index = model.index
-      x = index % 16
+  }, {
+    setSpritePosition: ->
+      index = @model.index
+      x = (index % 16)
       y = ~~(index / 16)
 
-      view.el.sourceRect = new createjs.Rectangle x * 16, y * 16, 16, 16
-  }, {
+      @el.sourceRect = new createjs.Rectangle x * 16, y * 16, 16, 16
   }

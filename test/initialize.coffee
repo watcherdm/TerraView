@@ -4,10 +4,10 @@ tests = [
   "./models/heightmap"
   "./models/tile"
   "./models/viewport"
-  "./views/viewport"
-  "./views/stage"
   "./views/tile"
   "./views/tileMap"
+  "./views/viewport"
+  "./views/stage"
 ]
 
 for test in tests

@@ -1,16 +1,37 @@
-module.exports = class StageView
-  constructor: (@canvasEl) ->
-    @el = new createjs.Stage @canvasEl
+View = require "views/base/View"
+ViewportModel = require "models/Viewport"
+ViewportView = require "views/Viewport"
 
-    _.bindAll @, "onTick"
+module.exports = View.extend "StageView",
+  {
+    create: (canvasEl) ->
+      view = @_super()
 
-    createjs.Ticker.setFPS 60
-    createjs.Ticker.useRAF = true
+      view.el = new createjs.Stage canvasEl
 
-    createjs.Ticker.addEventListener "tick", @onTick
+      view.viewportModel = ViewportModel.create 0, 0, 30, 20, 8, 8, 8, 8, 10
+      view.viewportView = ViewportView.create view.viewportModel
+      view.el.addChild view.viewportView.el
 
-  onTick: ->
-    @el.update()
+      view.el.update()
 
-  dispose: ->
-    createjs.Ticker.removeEventListener "tick", @onTick
+      _.bindAll view, "onTick"
+
+      createjs.Ticker.setFPS 60
+      createjs.Ticker.useRAF = true
+
+      createjs.Ticker.addEventListener "tick", view.onTick
+
+      view
+  }, {
+    onTick: ->
+      @el.update()
+
+    dispose: ->
+      createjs.Ticker.removeEventListener "tick", @onTick
+
+      @viewportView.dispose()
+      @viewportModel.dispose()
+
+      @_super()
+  }

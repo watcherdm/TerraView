@@ -19,3 +19,12 @@ describe "View Tile", ->
   it "should set sprite sheet position", ->
     expect(@view.el.sourceRect.x).to.equal 16
     expect(@view.el.sourceRect.y).to.equal 0
+
+  it "should set sprite position when model index changes", ->
+    expect(@view.el.sourceRect.x).to.equal 16
+    expect(@view.el.sourceRect.y).to.equal 0
+
+    @tileModel.setIndex 3
+
+    expect(@view.el.sourceRect.x).to.equal 48
+    expect(@view.el.sourceRect.y).to.equal 0

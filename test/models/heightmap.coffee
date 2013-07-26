@@ -49,8 +49,8 @@ describe "Model Heightmap", ->
 
   it "should process tiles to spritesheet indicies", ->
     expect(@model.data[0][0]).to.equal 0
-    expect(@model.data[5][0]).to.equal 93
-    expect(@model.data[5][7]).to.equal 160
+    expect(@model.data[5][0]).to.equal 221
+    expect(@model.data[5][7]).to.equal 0
     expect(@model.data[0][7]).to.equal 255
 
   it "should get an area", ->
@@ -59,7 +59,7 @@ describe "Model Heightmap", ->
     expect(area.length).to.equal 10
     expect(area[0].length).to.equal 10
 
-    expect(area[0][0]).to.equal 2
-    expect(area[9][0]).to.equal 2
-    expect(area[9][9]).to.equal 245
-    expect(area[0][9]).to.equal 245
+    expect(area[0][0]).to.equal 0
+    expect(area[9][0]).to.equal 0
+    expect(area[9][9]).to.equal 249
+    expect(area[0][9]).to.equal 249

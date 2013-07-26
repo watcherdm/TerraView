@@ -1,6 +1,6 @@
 Model = require "models/base/Model"
 
-module.exports = Model.extend "Viewport",
+module.exports = Model.extend "ViewportModel",
   {
     create: (x, y, width, height, worldChunkWidth, worldChunkHeight, chunkWidth, chunkHeight, maxElevation) ->
       model = @_super()
@@ -20,4 +20,14 @@ module.exports = Model.extend "Viewport",
 
       model
   }, {
+    setX: (x) ->
+
+      if x isnt @x
+        @x = x
+        EventBus.dispatch "!viewport:move", @, x
+
+    setY: (y) ->
+      if y isnt @y
+        @y = y
+        EventBus.dispatch "!viewport:move", @, y
   }

@@ -1,4 +1,6 @@
 module.exports = utils =
+  seed: +new Date
+
   clamp: (index, size) ->
     (index + size) % size
 

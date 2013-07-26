@@ -1,6 +1,6 @@
 Model = require "models/base/Model"
 
-module.exports = Model.extend "HeightmapChunk",
+module.exports = Model.extend "HeightmapChunkModel",
   {
     create: (args...) ->
       model = @_super()

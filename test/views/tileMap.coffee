@@ -3,10 +3,13 @@ HeightmapModel = require "models/Heightmap"
 ViewportModel = require "models/Viewport"
 TileModel = require "models/Tile"
 TileView = require "views/Tile"
+utils = require "lib/utils"
 
 describe "View TileMap", ->
   beforeEach ->
-    @viewportModel = ViewportModel.create 1, 2, 3, 4, 5, 6, 7, 8, 9
+    utils.seed = 19870910
+
+    @viewportModel = ViewportModel.create 1, 2, 5, 6, 5, 6, 7, 8, 9
     @view = TileMapView.create @viewportModel
 
   afterEach ->
@@ -29,7 +32,16 @@ describe "View TileMap", ->
     expect(@view.heightmap).to.not.equal undefined
 
   it "should populate tile model collection", ->
-    expect(@view.tileModels.length).to.equal 12
+    expect(@view.tileModels.length).to.equal 30
 
   it "should add tile views to container", ->
-    expect(@view.el.children.length).to.equal 12
+    expect(@view.el.children.length).to.equal 30
+
+  it "should redraw when key down event is fired by viewport", ->
+    tileModels = @view.tileModels
+
+    expect(tileModels[0].index).to.equal 185
+
+    @viewportModel.setX 12
+
+    expect(tileModels[0].index).to.equal 255

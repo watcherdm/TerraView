@@ -1,6 +1,6 @@
 Model = require "models/base/Model"
 
-module.exports = Model.extend "Tile",
+module.exports = Model.extend "TileModel",
   {
     create: (index, x, y) ->
       model = @_super()
@@ -11,4 +11,14 @@ module.exports = Model.extend "Tile",
 
       model
   }, {
+    setIndex: (index) ->
+      if @index isnt index
+        @index = index
+
+        @onChangeIndex()
+
+    setIndexCallback: (callback) ->
+      @onChangeIndex = callback
+
+    onChangeIndex: ->
   }

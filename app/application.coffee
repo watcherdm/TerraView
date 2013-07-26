@@ -4,4 +4,9 @@ module.exports = class Application
   initialize: ->
     canvasEl = document.getElementById "main-canvas"
 
-    new StageView canvasEl
+    StageView.create canvasEl
+
+    document.onkeydown = @onKeyDown
+
+  onKeyDown: (event) ->
+    EventBus.dispatch "!key:down", @, event

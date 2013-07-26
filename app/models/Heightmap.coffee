@@ -2,7 +2,7 @@ Model = require "models/base/Model"
 utils = require "lib/utils"
 HeightmapChunkModel = require "models/HeightmapChunk"
 
-module.exports = Model.extend "Heightmap",
+module.exports = Model.extend "HeightmapModel",
   {
     create: (seed, worldChunkWidth, worldChunkHeight, chunkWidth, chunkHeight, maxElevation) ->
       model = @_super()
@@ -31,7 +31,7 @@ module.exports = Model.extend "Heightmap",
           n = heightmap[cy y - 1][x]
           e = heightmap[y][cx x + 1]
           s = heightmap[cy y + 1][x]
-          w = heightmap[y][cx x + 1]
+          w = heightmap[y][cx x - 1]
           ne = heightmap[cy y - 1][cx x + 1]
           se = heightmap[cy y + 1][cx x + 1]
           sw = heightmap[cy y + 1][cx x - 1]
@@ -39,7 +39,7 @@ module.exports = Model.extend "Heightmap",
 
           o = heightmap[y][x]
 
-          if o in 0
+          if o is 0
             s = 0
           else
             a = n << n * 4
@@ -48,8 +48,8 @@ module.exports = Model.extend "Heightmap",
             d = w << w * 7
             e = ne << ne * 0
             f = se << se * 1
-            g = nw << nw * 2
-            h = sw << sw * 3
+            g = nw << nw * 3
+            h = sw << sw * 2
 
             s = a + b + c + d + e + f + g + h
 
@@ -123,7 +123,7 @@ module.exports = Model.extend "Heightmap",
         for x in [0..sliceWidth - 1]
           xIndex = utils.clamp x - xOffset + centerX, @worldTileWidth
           yIndex = utils.clamp y - yOffset + centerY, @worldTileHeight
-          
+
           data[y][x] = heightmapData[yIndex][xIndex]
 
       data
