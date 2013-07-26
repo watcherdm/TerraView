@@ -9,8 +9,8 @@
     "url": "git@github.com:clindsey/TerraView.git"
   },
   "scripts": {
-    "start": "brunch watch --server",
-    "test": "brunch test"
+    "start": "./node_modules/.bin/brunch watch --server",
+    "test": "./node_modules/.bin/brunch test"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.0 < 1.7",
