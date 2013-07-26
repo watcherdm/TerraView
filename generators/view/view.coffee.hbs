@@ -1,10 +1,10 @@
 View = require "views/base/View"
 
-module.exports = View.extend "{{#camelize}}{{name}}{{/camelize}}",
+module.exports = View.extend "{{#camelize}}{{name}}{{/camelize}}View",
   {
     create: ->
-      view = @_super()
+      {{name}}View = @_super()
 
-      view
+      {{name}}View
   }, {
   }

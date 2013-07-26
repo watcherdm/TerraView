@@ -2,9 +2,9 @@
 
 describe "View {{#camelize}}{{name}}{{/camelize}}", ->
   beforeEach ->
-    @view = {{#camelize}}{{name}}{{/camelize}}View.create()
+    @{{name}}View = {{#camelize}}{{name}}{{/camelize}}View.create()
 
   afterEach ->
-    @view.dispose()
+    @{{name}}View.dispose()
 
-    expect({{#camelize}}{{name}}{{/camelize}}View.getPool().usedList.length()).to.equal 0
+    expect({{#camelize}}{{name}}{{/camelize}}View.getUsedLength()).to.equal 0

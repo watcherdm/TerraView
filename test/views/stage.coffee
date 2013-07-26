@@ -5,10 +5,10 @@ TileView = require "views/Tile"
 
 describe "View Stage", ->
   beforeEach ->
-    @view = StageView.create ""
+    @stageView = StageView.create ""
 
   afterEach ->
-    @view.dispose()
+    @stageView.dispose()
 
     expect(StageView.getUsedLength()).to.equal 0
     expect(ViewportView.getUsedLength()).to.equal 0
@@ -19,4 +19,4 @@ describe "View Stage", ->
     expect(createjs.Ticker.useRAF).to.equal true
 
   it "should have a viewport view", ->
-    expect(@view.el.children.length).to.equal 1
+    expect(@stageView.el.children.length).to.equal 1

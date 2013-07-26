@@ -2,9 +2,9 @@
 
 describe "Model {{#camelize}}{{name}}{{/camelize}}", ->
   beforeEach ->
-    @model = {{#camelize}}{{name}}{{/camelize}}Model.create()
+    @{{name}}Model = {{#camelize}}{{name}}{{/camelize}}Model.create()
 
   afterEach ->
-    @model.dispose()
+    @{{name}}Model.dispose()
 
     expect({{#camelize}}{{name}}{{/camelize}}Model.getPool().isUsed.length()).to.equal 0

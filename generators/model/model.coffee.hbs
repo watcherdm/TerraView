@@ -1,10 +1,10 @@
 Model = require "models/base/Model"
 
-module.exports = Model.extend "{{#camelize}}{{name}}{{/camelize}}",
+module.exports = Model.extend "{{#camelize}}{{name}}{{/camelize}}Model",
   {
     create: ->
-      model = @_super()
+      {{name}}Model = @_super()
 
-      model
+      {{name}}Model
   }, {
   }

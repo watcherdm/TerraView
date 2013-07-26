@@ -2,20 +2,20 @@ HeightmapChunkModel = require "models/HeightmapChunk"
 
 describe "Model HeightmapChunk", ->
   beforeEach ->
-    @model = HeightmapChunkModel.create()
+    @heightmapChunkModel = HeightmapChunkModel.create()
 
   afterEach ->
-    @model.dispose()
+    @heightmapChunkModel.dispose()
 
     expect(HeightmapChunkModel.getUsedLength()).to.equal 0
 
   it "should have cells", ->
-    expect(@model.cells).to.not.equal undefined
+    expect(@heightmapChunkModel.cells).to.not.equal undefined
 
   it "should do populate it's cells correctly", ->
-    @model.dispose()
+    @heightmapChunkModel.dispose()
 
-    @model = HeightmapChunkModel.create 0, 4, 0, 4, 5, 5
+    @heightmapChunkModel = HeightmapChunkModel.create 0, 4, 0, 4, 5, 5
 
     map = [
       [ 0, 1, 2, 3, 4]
@@ -25,4 +25,4 @@ describe "Model HeightmapChunk", ->
       [ 4, 3, 2, 1, 0]
     ]
 
-    expect(@model.cells).to.deep.equal map
+    expect(@heightmapChunkModel.cells).to.deep.equal map

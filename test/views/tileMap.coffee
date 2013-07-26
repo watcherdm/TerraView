@@ -10,11 +10,11 @@ describe "View TileMap", ->
     utils.seed = 19870910
 
     @viewportModel = ViewportModel.create 1, 2, 5, 6, 5, 6, 7, 8, 9
-    @view = TileMapView.create @viewportModel
+    @tileMapView = TileMapView.create @viewportModel
 
   afterEach ->
     @viewportModel.dispose()
-    @view.dispose()
+    @tileMapView.dispose()
 
     expect(TileMapView.getUsedLength()).to.equal 0
     expect(HeightmapModel.getUsedLength()).to.equal 0
@@ -23,22 +23,22 @@ describe "View TileMap", ->
     expect(TileView.getUsedLength()).to.equal 0
 
   it "should have an el", ->
-    expect(@view.el).to.not.equal undefined
+    expect(@tileMapView.el).to.not.equal undefined
 
   it "should have a heightmap", ->
-    expect(@view.heightmap).to.not.equal undefined
+    expect(@tileMapView.heightmap).to.not.equal undefined
 
   it "should have a viewport model", ->
-    expect(@view.heightmap).to.not.equal undefined
+    expect(@tileMapView.heightmap).to.not.equal undefined
 
   it "should populate tile model collection", ->
-    expect(@view.tileModels.length).to.equal 30
+    expect(@tileMapView.tileModels.length).to.equal 30
 
   it "should add tile views to container", ->
-    expect(@view.el.children.length).to.equal 30
+    expect(@tileMapView.el.children.length).to.equal 30
 
   it "should redraw when key down event is fired by viewport", ->
-    tileModels = @view.tileModels
+    tileModels = @tileMapView.tileModels
 
     expect(tileModels[0].index).to.equal 185
 
