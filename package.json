@@ -21,7 +21,8 @@
     "uglify-js-brunch": ">= 1.0 < 1.7",
     "clean-css-brunch": ">= 1.0 < 1.7",
     "scaffolt": "~0.3.1",
-    "ugly-blanket-brunch": "~1.5.3"
+    "ugly-blanket-brunch": "~1.5.3",
+    "brunch": "~1.7.0"
   },
   "devDependencies": {}
 }

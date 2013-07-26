@@ -7,7 +7,7 @@ module.exports = View.extend "TileView",
 
       view.model = tileModel
 
-      view.el = new createjs.Bitmap "/images/tileset_terra.png"
+      view.el = new createjs.Bitmap "images/tileset_terra.png"
 
       view.model.setIndexCallback ->
         view.setSpritePosition()
