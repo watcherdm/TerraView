@@ -454,7 +454,7 @@ module.exports = View.extend("TileView", {
     var view;
     view = this._super();
     view.model = tileModel;
-    view.el = new createjs.Bitmap("/images/tileset_terra.png");
+    view.el = new createjs.Bitmap("images/tileset_terra.png");
     view.model.setIndexCallback(function() {
       return view.setSpritePosition();
     });
